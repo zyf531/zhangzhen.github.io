@@ -1,2 +1,2 @@
 #zhangzhen.github.io
-<img src='./zhangzhen.JPG' width='200'/>
+<img src='./zhangzhen.JPG' width='300'/>
