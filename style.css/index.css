@@ -1,0 +1,383 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Helvetica, "PingFang SC", "Microsft Yahei", sans-serif;
+}
+
+img {
+  width: 100%;
+}
+
+:root {
+  --primary-color: #00cccc;
+  --secondary-color: #e3e3e3;
+  --text-darker: #339999;
+  --backdrop-color: rgba(42, 42, 42, 0.69);
+}
+
+header {
+  width: 100vw;
+  height: 80px;
+  display: flex;
+  padding: 0 40px;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 200;
+}
+
+header .logo {
+  font-size: 1.2rem;
+  font-weight: bolder;
+  color: var(--primary-color);
+}
+
+header nav {
+  display: flex;
+  justify-content: space-around;
+}
+
+header nav a {
+  color: var(--primary-color);
+  text-decoration: none;
+  margin: 0 25px;
+  font-size: 1.2rem;
+  transition: 0.4s;
+}
+
+header nav :hover {
+  color: #009966;
+}
+
+header.sticky {
+  position: fixed;
+  background-color: white;
+  box-shadow: 0 0 18px rgba(0, 0, 0, 0.2);
+  animation: dropDown 0.5s ease-in-out forwards;
+}
+
+@keyframes dropDown {
+  0% {
+    transform: translateY(-100px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.glide {
+  position: relative;
+  top: -80px;
+  z-index: 50;
+}
+
+.glide__slide img,
+.glide__slide video {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+}
+
+.slide-caption {
+  position: absolute;
+  z-index: 70;
+  color: var(--secondary-color);
+  text-align: center;
+  max-width: 60vw;
+}
+
+.glide__slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slide-caption h1 {
+  font-size: 3rem;
+  font-weight: bolder;
+}
+
+.slide-caption h3 {
+  font-size: 1.3rem;
+  font-weight: bolder;
+  margin: 50px 0;
+}
+
+.slide-caption.top {
+  max-width: 80vw;
+  top: 100px;
+}
+
+.slide-caption > * {
+  opacity: 0;
+}
+
+.backdrop {
+  background: var(--backdrop-color);
+  z-index: 60;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  opacity: 0.5;
+}
+
+.explore-btn {
+  padding: 10px 30px;
+  background-color: var(--text-darker);
+  border: 0;
+  border-radius: 5px;
+  color: #e7e9ec;
+  font-size: 1rem;
+  cursor: pointer;
+  outline: none;
+  transition: 0.4s;
+}
+
+.explore-btn:hover {
+  background-color: #009966;
+}
+
+/*通用样式*/
+.content-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.content-wrapper img {
+  width: 160px;
+  height: 200px;
+  margin-top: 28px;
+  border-radius: 1rem;
+  border: 1px solid grey;
+  object-fit: cover;
+  object-position: top center;
+}
+
+section {
+  display: grid;
+  justify-items: center;
+  max-width: 1180px;
+  padding: 0 80px;
+}
+
+.section-bg {
+  position: relative;
+}
+
+.section-bg::before {
+  content: "";
+  display: block;
+  position: absolute;
+  background-color: #f9fbfb;
+  width: 100vw;
+  height: 100%;
+  z-index: -1;
+}
+
+.title1 {
+  font-size: 1.3rem;
+  color: var(--primary-color);
+}
+
+.title1::after {
+  content: "";
+  display: block;
+  width: 80%;
+  height: 4px;
+  background-color: var(--primary-color);
+  margin-top: 14px;
+  transform: translateX(10%);
+}
+
+.intro {
+  margin: 28px 0 60px 0;
+  font-size: 1.1rem;
+  color: #727272;
+  max-width: 600px;
+  line-height: 28px;
+}
+
+/*关于我的联系方式*/
+.about-Me {
+  padding-bottom: 32px;
+}
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 126px);
+  column-gap: 5px;
+}
+
+.feature {
+  display: grid;
+  grid-template-areas: "icon title" "icon content";
+  grid-template-columns: 60px 1fr;
+  grid-template-rows: 1fr 3fr;
+}
+
+.feature a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+.feature a:hover {
+  color: var(--text-darker);
+}
+
+.feature svg {
+  grid-area: icon;
+  font-size: 1.1rem;
+  width: 30px;
+  height: 30px;
+}
+
+.feature-title {
+  grid-area: title;
+  font-size: 1.1rem;
+  color: #2e2e2e;
+}
+
+.feature-content {
+  grid-area: content;
+  color: #8b8b8b;
+  margin-top: 8px;
+}
+
+/*技能概述*/
+.wrappers {
+  max-width: unset;
+  padding: 0;
+  padding-top: 70px;
+  padding-bottom: 100px;
+  text-align: center;
+  display: grid;
+}
+
+.images img {
+  width: 500px;
+  height: 300px;
+  display: inline-block;
+  margin-bottom: 1rem;
+  border: 1px solid grey;
+  border-radius: 1rem;
+  vertical-align: top;
+  object-fit: cover;
+  object-position: bottom center;
+}
+
+.speech-itme {
+  display: inline-block;
+  justify-content: center;
+  max-width: 640px;
+}
+
+.speech-itme p {
+  display: inline-block;
+  text-align: left;
+  margin: 28px 0 60px 0;
+  font-size: 1.1rem;
+  color: #494949;
+  line-height: 28px;
+}
+
+/*页脚信息*/
+footer {
+  margin-top: 120px;
+  background-color: #181818;
+  display: grid;
+  justify-items: center;
+  padding-top: 70px;
+  padding-bottom: 25px;
+  margin: 0;
+}
+
+footer .scrollTop a svg {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--primary-color);
+  position: fixed;
+  bottom: 60px;
+  right: 30px;
+}
+
+.footer-menus {
+  width: 100%;
+  max-width: 1180px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.footer-menus p {
+  font-size: 3rem;
+  color: white;
+  font-weight: bolder;
+}
+
+.footer-menus p svg {
+  width: 32px;
+  height: 32px;
+}
+
+@media screen and (max-width: 950px) {
+  .features {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: unset;
+    gap: 20px;
+  }
+  .intro {
+    max-width: 450px;
+  }
+  .speech-itme p {
+    max-width: 450px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  html {
+    font-size: 14px;
+  }
+  .images img {
+    width: 350px;
+    height: 200px;
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .slide-caption h1 {
+    font-size: 28px;
+  }
+  .slide-caption h3 {
+    font-size: 14px;
+  }
+  .footer-menus p {
+    font-size: 28px;
+  }
+  .footer-menus p svg {
+    width: 28px;
+    height: 28px;
+  }
+  .explore-btn {
+    font-size: 14px;
+    padding: 8px 18px;
+  }
+  .features {
+    grid-template-columns: 1fr;
+  }
+  header {
+    padding: 0 20px;
+  }
+  header nav a {
+    margin: 0 15px;
+  }
+}
